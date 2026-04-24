@@ -17,7 +17,7 @@
 :root{
   --glass-bg:rgba(255,255,255,0.18);--glass-border:rgba(255,255,255,0.55);
   --glass-inner:rgba(255,255,255,0.65);--glass-shadow:rgba(0,0,0,0.10);--blur:28px;
-  --text:rgba(0,0,0,0.85);--text2:rgba(0,0,0,0.52);--text3:rgba(0,0,0,0.35);
+  --text:rgba(0,0,0,1);--text2:rgba(0,0,0,1);--text3:rgba(0,0,0,1);
   --accent:#007AFF;--r-xl:22px;--r-lg:16px;--r-md:12px;--r-sm:8px;
 }
 html,body{width:100%;height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;}
@@ -100,24 +100,24 @@ html,body{width:100%;height:100%;font-family:-apple-system,BlinkMacSystemFont,'S
 .field-sym{font-size:10px;color:var(--text3);font-weight:500;}
 .field-num{width:84px;background:transparent;border:none;outline:none;font-family:inherit;font-size:12px;font-weight:600;color:#0055cc;text-align:right;padding:4px 0;}
 .field-num.days{color:#007a8a;width:40px;}.field-unit{font-size:10px;color:var(--text3);}
-/* RIGHT */
-.right-panel{display:grid;grid-template-rows:auto 1fr auto;gap:8px;min-height:0;overflow:hidden;}
+/* RIGHT — storico prende lo spazio rimanente */
+.right-panel{display:grid;grid-template-rows:auto 380px 1fr;gap:8px;min-height:0;overflow:hidden;}
 /* CALC STRIP */
 .calc-strip{background:var(--glass-bg);backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:inset 0 1px 0 var(--glass-inner),0 4px 16px rgba(0,0,0,0.06);display:grid;grid-template-columns:repeat(9,1fr);}
 .calc-item{padding:9px 8px;border-right:1px solid rgba(255,255,255,0.3);text-align:center;}.calc-item:last-child{border-right:none;}
 .calc-lbl{font-size:8px;color:var(--text3);font-weight:500;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:3px;line-height:1.2;}
 .calc-val{font-size:12px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
 .calc-val.pos{color:#1a7c38;}.calc-val.neg{color:#cc1f14;}.calc-val.info{color:#0055cc;}.calc-val.warn{color:#8a5000;}.calc-val.big{font-size:14px;}
-/* CHARTS */
-.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-height:0;overflow:hidden;}
-.chart-card{background:var(--glass-bg);backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:inset 0 1px 0 var(--glass-inner),0 6px 24px rgba(0,0,0,0.07);padding:12px 14px;display:flex;flex-direction:column;overflow:hidden;}
-.chart-title{font-size:9px;font-weight:600;color:var(--text2);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:8px;}
+/* CHARTS — altezza fissa 180px */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;height:100%;overflow:hidden;}
+.chart-card{background:var(--glass-bg);backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:inset 0 1px 0 var(--glass-inner),0 6px 24px rgba(0,0,0,0.07);padding:10px 14px;display:flex;flex-direction:column;overflow:hidden;}
+.chart-title{font-size:9px;font-weight:600;color:var(--text2);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:6px;}
 .chart-wrap{flex:1;position:relative;min-height:0;}
-.chart-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px;}
+.chart-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px;}
 .leg-item{display:flex;align-items:center;gap:4px;font-size:9px;color:var(--text2);}
 .leg-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0;}
-/* STORICO piu alto */
-.storico-card{background:var(--glass-bg);backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:inset 0 1px 0 var(--glass-inner),0 4px 16px rgba(0,0,0,0.05);max-height:260px;overflow:hidden;display:flex;flex-direction:column;}
+/* STORICO — cresce con lo spazio disponibile */
+.storico-card{background:var(--glass-bg);backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:inset 0 1px 0 var(--glass-inner),0 4px 16px rgba(0,0,0,0.05);min-height:0;overflow:hidden;display:flex;flex-direction:column;}
 .storico-hdr{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid rgba(255,255,255,0.35);flex-shrink:0;}
 .storico-title{font-size:9px;font-weight:600;color:var(--text2);letter-spacing:0.07em;text-transform:uppercase;}
 .storico-count{font-size:9px;color:var(--text3);}
